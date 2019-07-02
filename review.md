@@ -168,5 +168,119 @@ $$L_+是简单闭曲线，是S_+的边界 \ \ \ 则$$
 
 $$\oint_{L^+}Pdx+Qdy+Rdz=\iint_{S^+}(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z})dydz+(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})dxdy+(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x})dxdz$$
 
+##第八章完
 
+##第九章 常微分方程
+###基本概念
+$$n阶常微分方程(方程中导数的最高阶为n)$$
 
+$$通解中独立的任意常数恰是方程的阶数$$
+
+$$通解不能表示的解叫奇解$$
+
+$$判断常数是否独立：D(y,y',y'',\dotsb)/D(C_1,C_2,C_3,\dotsb)行列式是否不为0$$
+###初等积分法
+$$第一类：\Large \frac{dy}{dx}=f(ax+by+c)$$
+
+$$作变量替换z=ax+by+c$$
+
+$$得\frac{dz}{dx}=a+b\frac{dy}{dx}=a+bf(z)是关于z可变量分离的方程$$
+$$第二类：\Large \frac{dy}{dx}=f(x,y)(f是关于x,y的齐次函数)$$
+
+$$例如：y'=\frac{x+2y}{2x-y}$$
+
+$$改写为y'=h(\frac{y}{x})$$
+
+$$令u=\frac{y}{x}$$
+
+$$则y'=u+xu'带入上式得\frac{du}{dx}=\frac{h(u)-u}{x}可分分离变量$$
+$$第三类：\Large \frac{dy}{dx}=f(\frac{a_1x+b1_y+c_1}{a_2x+b_2y+c_2})$$
+
+$$第一种\Delta=\begin{vmatrix}
+a_1 & b_1 \\
+a_2 & b_2 
+\end{vmatrix}\neq 0$$
+
+$$联立\begin{cases}
+a_1x+b1_y+c_1=0\\
+a_2x+b_2y+c_2=0
+\end{cases} \ \ \ 解得(x_0,y_0)
+$$
+
+$$令\begin{cases}
+u=x-x_0\\
+v=y-y_0
+\end{cases}$$
+
+$$原式化为\frac{dv}{du}=f(\frac{a_1u+b_1v}{a_2u+b_2v})是第二种方程$$
+$$第二种\Delta=\begin{vmatrix}
+a_1 & b_1 \\
+a_2 & b_2 
+\end{vmatrix}= 0$$
+
+$$令z=a_1x+b_1y$$
+
+$$则\frac{dz}{dx}=a_1+b_1\frac{dy}{dx}=a_1+b_1f(\frac{z+c_1}{kz+c_2})可变量分离$$
+
+###一阶线性微分方程（关于y'和y都是线性的）
+$$\Large \frac{dy}{dx}+P(x)y=Q(x)$$
+
+$$第一类：一阶线性其次微分方程（Q(x)\equiv 0）$$
+
+$$直接分离变量得到通解y=Ce^{-\int_{x_0}^xP(t)dt}$$
+$$第二类：Q(x) \bcancel{\equiv} 0$$
+
+$$先求出对应其次方程通解，再令通解中的常数C=u(x,y)设出新解：$$
+
+$$\Large \color{#FF0000}{y(x)=u(x)e^{-\int_{x_0}^xP(t)dt}}$$
+
+$$对两边求导 y'(x)=u'(x)e^{-\int_{x_0}^xP(t)dt}+u(x)P(x)e^{-\int_{x_0}^xP(t)dt}$$
+
+$$代入原式有u'(x)e^{-\int_{x_0}^xP(t)dt}=Q(x)$$
+
+$$y(x)=[\int_{x_0}^xQ(t)e^{-\int_{x_0}^xP(t)dt}+C]e^{-\int_{x_0}^xP(t)dt}$$
+
+$$结构为一个特解加上通解$$
+
+####伯努利方程
+$$\frac{dy}{dx}=P(x)y=Q(x)y^a \ \ \ 解法：同除以y^a 再令z=y^{1-a}化为一阶线性微分方程$$
+###全微分方程（恰当方程）
+$$\Large \frac{dy}{dx}=\frac{-P(x,y)}{Q(x,y)}$$
+
+$$可以写成P(x,y)dx+Q(x,y)dy=0的形式$$
+
+$$为某二元函数全微分或者乘适当函数(积分因子)后是某个二元函数全微分$$
+
+$$通积分为u(x,y)=C$$
+
+$$\large 求原函数的方式见第八章$$
+
+$$常见积分因子$$
+
+$$ \color{#FF0000}{\frac{1}{\sqrt{x^2+y^2}}},\color{#FF0000}{\frac{1}{xy},e^x,e^y,\frac{1}{x^2+y^2},\frac{1}{x^2-y^2}}
+$$
+
+$$(略过求积分因子的公式法)$$
+###可降阶的二阶微分方程
+$$\Large F(X,Y',Y'')$$
+
+$$令z=y' \ 化为F(x,z,z')$$
+###解决初值问题
+$$\begin{cases}
+y'=f(x,y)\\
+y(x_0)=y_0
+\end{cases}$$
+
+####皮卡序列的构造方法
+$$令y(x)\equiv y_0$$
+
+$$y_1(x)=y_0+\int_{x_0}^x f(x,y_0(x))dx$$
+
+$$y_2(x)=y_0+\int_{x_0}^x f(x,y_1(x)dx$$
+
+$$\dotsb$$
+
+$$y_n(x)=y_0+\int_{x_0}^x f(x,y_{n-1}(x)dx$$
+
+###高阶线性微分方程
+$$郎斯基行列式$$
