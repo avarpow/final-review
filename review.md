@@ -282,5 +282,271 @@ $$\dotsb$$
 
 $$y_n(x)=y_0+\int_{x_0}^x f(x,y_{n-1}(x)dx$$
 
+
+#高数 七月3日
 ###高阶线性微分方程
-$$郎斯基行列式$$
+$$郎斯基行列式(判断函数组是否线性相关)$$
+
+$$W(x)= 
+    \begin{vmatrix}
+    \varphi_1(x) &\dotsb &\varphi_n(x) \\
+    \varphi_1'(x) &\dotsb &\varphi_n'(x) \\
+    \vdots & \ & \vdots \\
+    \varphi_1^{(n-1)}(x) &\dotsb &\varphi_n^{(n-1)}(x) \\
+    \end{vmatrix}是否等于0$$
+
+$$根据解的结构 只需求对应齐次方程的通解和一个特解$$
+####二阶常系数微分方程
+$$对应齐次方程:y''+py'+qy=0$$
+
+$$对应特征方程\lambda^2+p\lambda+q=0$$
+
+$$第一种 \ 两个不相等实根通解为：y=C_1e^{\lambda_1 x}+C_2e^{\lambda_2 x}$$
+
+$$第二种 \ 两个相等实根通解为：y=C_1e^{\lambda x}+C_2xe^{\lambda x}$$
+
+$$第三种 \ 两个共轭复根(\lambda=a\pm\beta i)通解为：y=e^{ax}(C_1cos\beta x+C_2sin\beta x) $$
+$$求特解的方式$$
+
+$$第一种：f(x)=P_n(x)e^{ax}时  $$
+
+$$ 设y=x^kQ_n(x)e^{ax} \ \ Q_n(x)为待定系数多项式$$
+
+$$k=\begin{cases}
+0,a\neq\lambda_1,a\neq\lambda_2 \\
+1,a=\lambda_1或a=\lambda_2 \\
+2,a=\lambda_1=\lambda_2
+\end{cases}$$
+$$第二种：f(x)=e^{ax}[P_m(x)cos\beta x+P_n(x)sin\beta x]时$$
+
+$$设y=x^ke^{ax}[Q_l^{(1)}cos\beta x+Q_l^{(2)}sin\beta x](Q_l^{(1)},Q_l^{(2)}是待定系数多项式)$$
+
+$$k=\begin{cases}
+0,a\pm\beta i 不是特征根\\ 
+1,a\pm\beta i 是特征根
+\end{cases}$$
+
+####欧拉方程
+$$\Large x^ny^{(n)}+p_1x^{n-1}y^{(n-1)}+\dotsb+p_{n-1}xy'+p_ny=f(x)$$
+
+$$做变量替换x=e^t \ \ 或 t=ln(x)$$
+
+$$\Large 高阶类似二阶$$
+    
+##第十章 无穷级数
+###基本概念
+$$柯西收敛准则：\forall \varepsilon \ \ \exist N \ \ 当n,m>N,|a_m-a_n<\varepsilon|则序列有极限$$
+
+$$部分和极限存在则级数收敛$$
+
+$$级数收敛，通项a_n \rarr 0$$
+
+$$级数前面添加或者删除有限项目，不改变级数的敛散性$$
+
+$$ 收敛级数加括号仍然收敛，级数的和不变 $$
+###正向级数的收敛判别方法
+####比较判别法
+$$u_n < v_n $$
+
+$$\sum_{n=1}^{\infty}v_n收敛则\sum_{n=1}^{\infty}u_n收敛$$
+
+$$\sum_{n=1}^{\infty}u_n发散则\sum_{n=1}^{\infty}v_n发散$$
+####p级数
+$$\sum_{n=1}^{\infty}\frac{1}{n^p} \ \ \ p>1收敛，p<=1发散$$
+####比值法
+$$\lim_{n \rarr \infty}\frac{u_n}{v_n}=h$$
+
+$$若0 < h <\infty 则两个级数收敛性相同$$
+
+####达朗贝尔判别法(一般在有阶乘时候用)
+$$\lim_{n \rarr \infty}\frac{u_{n+1}}{u_n}=l$$
+
+$$\begin{cases}
+l<1时，级数收敛\\
+l>1时，级数发散\\
+l=1时候，不能判断
+\end{cases}$$
+####柯西判别法(根值法)(一般用在有n次方时候用)
+$$\lim_{n \rarr \infty}\sqrt[n]{u_n}=l$$
+
+$$\begin{cases}
+l<1时，级数收敛\\
+l>1时，级数发散\\
+l=1时候，不能判断
+\end{cases}$$
+
+####Raabe判别法(书上说了读者不必记住他)
+####积分判别法
+$$设\sum_{n=1}^{\infty}u_n为正项级数，若存在单调下降非负函数f(x)使得f(n)=u_n$$
+
+$$则\sum_{n=1}^{\infty}u_n收敛的充分必要条件是无穷积分\int_1^\infty f(x)dx收敛$$
+
+###任意项级数
+####莱布尼茨判别法(交错级数，递减趋0)
+$$\begin{cases}
+u_n>u_{n+1}\\
+\lim_{n \rarr \infty}u_n=0
+\end{cases}$$
+
+$$则级数收敛$$
+####绝对收敛与条件收敛
+$$若正项级数\sum_{n=1}^{\infty}|u_n|收敛则\sum_{n=1}^{\infty}u_n收敛$$
+####狄里克雷判别法（一个趋0，乘以有界，收敛）
+$$级数\sum_{k=1}^{\infty}a_kb_k$$
+
+$$若a_n单调，\lim_{k \rarr \infty}a_k=0且b_k部分和有界，则级数收敛$$
+####阿贝尔判别法(一个收敛，乘以单调有界，收敛)
+$$级数\sum_{k=1}^{\infty}a_kb_k$$
+
+$$若级数\sum_{k=1}^{\infty}a_k收敛,且级数\sum_{k=1}^{\infty}b_k单调有界则级数收敛$$
+##函数项级数（级数每一项都是x的函数）
+$$\Large \sum_{n=1}^{\infty}u_n(x)=u_1(x)+\dotsb+u_n(x)+\dotsb$$
+
+$$收敛点：取x_0级数发散则x_0是收敛点$$
+
+$$收敛域：全体收敛点组成的集合$$
+
+$$和函数：记为S(x)$$
+
+$$一致收敛的定义：略 \ \ 符号：f_n(x)\rightrightarrows f(x)$$
+###判断是否一致收敛的方法
+$$1.若|f_n(x)-f(x)|\leq a_n 且a_n \rarr 0 \ \ \ 则f_n(x)一致收敛$$
+
+$$2.若存在点列x_n,若|f_n(x_n)-f(x_n)| \geq l则f_n(x)不一致收敛$$
+
+$$2.变式\ \ 若存在点列x_n,若|f_n(x_n)-f(x_n)| \rarr k \bcancel{=} 0则f_n(x)不一致收敛$$
+
+$$一致收敛的必要条件：u_n(x) \rarr 0$$
+
+$$一致收的柯西准则(略)$$
+
+####强级数判别法(M判别法):
+
+$$ u_n(x) \leq a_n \ \sum_{n=1}^{\infty}a_n收敛 则\sum_{n=1}^{\infty}u_n(x)一致收敛$$
+####狄里克雷判别法
+$$u_n(x)=a_n(x)b_n(x)$$
+
+$$若对\forall x,a_n(x)对n单调，且a_n(x)一致收敛于0$$
+
+$$b_n部分和序列一致有界则u_n(x)一致收敛$$
+
+####阿贝尔判别法
+$$u_n(x)=a_n(x)b_n(x)$$
+
+$$若\forall x \ a_n(x)对n单调，a_n(x)一致有界，$$
+
+$$且\sum_{n=1}^{\infty}b_n(x)一致收敛,则u_n(x)一致收敛$$
+
+####一致收敛函数的性质
+$$\begin{cases}
+1.u_n(x)连续，则和函数也连续(反过来可以证明函数不一致收敛)\\
+2.可以逐项积分\int_a^b\sum_{k=1}^{\infty}u_k(x)dx=\sum_{k=1}^{\infty}\int_a^bu_k(x)dx
+\end{cases}$$
+
+$$\color{FF0000}若\sum_{k=1}^{\infty}u_n(x)点点收敛,\sum_{k=1}^{\infty}u_n'(x)连续且一致收敛则可逐项求导$$
+
+$$\Large 可以利用各种求导积分更容易求得和函数来计算级数的值$$
+
+###幂级数
+$$形式：\sum_{n=1}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+\dotsb$$
+
+$$收敛半径(幂级数收敛域是一个点或者x_0为中心的区间，区间长度一半叫收敛半径)$$
+####求收敛半径
+$$1.若幂级数相邻两项的系数之比有极限l$$
+
+$$\large \lim_{n\rarr \infty}|\frac{a_{n+1}}{a_n}|=l$$
+
+$$或者以下极限成立$$
+
+$$\large \lim_{n \rarr \infty}\sqrt[n]{a_n}=l$$
+
+$$则\begin{cases}
+当0 < l <+\infty时，& R=\frac{1}{l}\\
+当l=0时，& R=+\infty\\
+当l=+\infty时，& R=0
+\end{cases}$$
+
+$$若有很多项系数为零，可直接换元用比值法$$
+####幂级数的性质
+$$1.内闭一致性：幂级数在收敛域中任意一个区间上一致收敛$$
+
+$$2.可逐项积分逐项求导，收敛域不变$$
+
+###泰勒级数
+$$余项趋0才能泰勒展开$$
+$$先把分式化为容易展开的形式$$
+$$可以用来估算积分的近似值$$
+####初等函数额泰勒展开
+$$e^x=1+x+\frac{1}{2!}x^2+\dotsb+\frac{1}{n!}x^n+\dotsb,x \in R$$
+
+$$sinx=x-\frac{x^3}{3!}+\frac{x^5}{5!}+\dotsb+(-1)^{n-1}\frac{x^{2n-1}}{(2n-1)!}$$
+
+$$arctanx=x-\frac{x^3}{3}+\frac{x^5}{5}+\dotsb+(-1)^n\frac{1}{2n+1}x^{2n+1},x \in (-1,1)$$
+
+$$ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}+\dotsb+(-1)^{n-1}\frac{x^n}{n},x \in (-1,1)$$
+
+$$(1+x)^a=1+ax+\frac{a(a-1)}{2!}+\dotsb+\frac{a(a-1)\dotsb(a-n+1)}{n!}x^n,x \in (-1,+\infty)$$
+
+##第十一章 广义积分与含参变量积分
+###无穷积分
+$$\lim_{A \rarr +\infty}\int_a^Af(x)dx存在则称无穷限积分收敛$$
+
+$$p函数\int_1^{+\infty}\frac{1}{x^p}当p>1时收敛$$
+####柯西收敛原理(无穷积分收敛的充要条件)
+$$\forall \varepsilon \ \exist A_0>a \ A,A'>A_0|\int_A^{A'}f(x)dx|<\varepsilon$$
+
+$$绝对收敛和条件收敛，比较判别法和级数类似$$
+
+$$比值法：\lim_{x\rarr +\infty}\frac{f(x)}{g(x)}=k$$
+
+$$0<k<+\infty时 两无穷积分收敛性相同$$
+
+####狄里克雷判别法
+$$对于\int_a^{+\infty}f(x)g(x)dx$$
+
+$$若\forall A>a \int_a^Af(x)dx有界，g(x)单调趋0则原无穷积分收敛$$
+
+####阿贝尔判别法
+$$对于\int_a^{+\infty}f(x)g(x)dx$$
+
+$$若\int_a^{+\infty}f(x)dx收敛，g(x)单调有界，则原无穷积分收敛$$
+###瑕积分
+$$p函数\int_0^{1}\frac{1}{x^p}当p<1时收敛$$
+
+$$比较判别法，比值判别法，柯西收敛原理类似无穷限积分$$
+###含参变量的正常积分
+####连续性
+$$若二元函数f(x,y)在闭矩形区域上连续，则参变量积分g(y)=\int_a^bf(x,y)dx连续$$
+
+$$有了连续性，可以交换求极限和求积分的顺序$$
+
+$$有了连续性，可以交换x和y的积分顺序$$
+
+$$有了连续性，可以交换求微和积分的顺序$$
+
+$$可以把含有三个参数的积分转换为累次积分(可以考虑交换积分顺序)方便计算$$
+###含参变量的广义积分 略
+$$\Large \Gamma(\alpha)=\int_0^{+\infty}x^{\alpha-1}e^{-x}dx$$
+
+$$\Large \Gamma(\alpha)=\alpha\Large \Gamma(\alpha-1)$$
+
+$$\Large  \Beta(p,q)=\int_0^1x^{p-1}(1-x)^{q-1}dx$$
+
+$$\Large  \Beta(p,q)=\frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$$
+##十二章 傅立叶级数
+###三角函数的正交性
+####正交
+$$(f,g)=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)g(x)dx=0则f(x),g(x)正交$$
+
+$$函数系： \frac{1}{\sqrt{2}},cosx,sinx,cos2x,sin2x,\dotsb两两正交且范数为1$$
+
+####周期为2pi的函数的傅立叶级数
+$$若f(x)在定义上分段连续且分段单调是能傅立叶展开的充分条件$$
+
+$$f(x)=\frac{a_0}{2}+\sum_{n=1}^{+\infty}(a_0cosnx+b_0sinnx)$$
+
+$$其中\begin{cases}
+    a_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)cosnxdx\\
+    b_n=\frac{1}{\pi}\int_{-\pi}^{\pi}f(x)sinnxdx
+\end{cases}$$
+####
